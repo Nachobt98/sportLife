@@ -1,0 +1,26 @@
+GET api/v1/articles
+    RESPONSE -> All articles
+
+POST api/v1/login
+    REQUEST -> {
+        email: string, REQUIRED
+        password: string REQUIRED
+    }
+    RESPONSE -> {
+        access_token: string REQUIRED
+    }
+
+POST api/v1/register
+    REQUEST -> {
+        location: string,
+        first_name: string, REQUIRED 
+        last_name: string, REQUIRED
+        username: string, REQUIRED
+        email: string, REQUIRED
+        password: string, REQUIRED
+        birth_date: string
+    }
+
+    RESPONSE -> {
+        access_token: string REQUIRED
+    }
