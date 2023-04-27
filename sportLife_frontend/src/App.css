@@ -1,4 +1,4 @@
-.App {
+/*.App {
   text-align: center;
 }
 
@@ -35,4 +35,154 @@
   to {
     transform: rotate(360deg);
   }
+}
+*/
+
+.div3{
+  padding: 100px;
+ display:flex;
+ align-items: center;
+}
+
+.unete{
+ margin:60px;
+
+}
+
+.butonUNETE{
+font-size: 20px;
+border-radius: 15px;
+padding: 20px;
+padding-left: 30px;
+padding-right: 30px;
+text-decoration: none;
+background-color: grey;
+color: white;
+
+}
+
+.butonUNETE:hover{
+background-color: rgb(97, 97, 97);
+color: white;
+}
+.unete p{
+ text-size-adjust: 20px;
+}
+
+.sportlife{
+width: 200px;
+}
+
+a{
+padding: 10px;
+}
+.bodyInicio{
+background-image:url(./img/img3.jpg);
+}
+
+.div1Inicio{
+display:grid;
+justify-content:space-evenly;
+align-content: center;
+align-items: center;
+height: 60vh;
+margin: 10%;
+margin-left: 20%;
+margin-right: 20%;
+background-color: rgba(0, 0, 0, 0.596);
+
+}
+
+form{
+display: block;
+justify-content:end;
+align-items:end;
+}
+form div{
+padding: 20px;
+
+}
+
+label{
+color: #ffffff;
+}
+
+.labelPass{
+padding-right: 80px;
+}
+
+.iniciop{
+color: #ffffff;
+font-size: 40px;
+font-family: 'Montserrat', sans-serif;
+}
+
+input{
+background-color: #57555500;
+border-color: #00000000;
+border: #000;
+color: white;
+border: none;
+border-bottom: 2px solid rgb(255, 255, 255);
+
+}
+
+input:hover{
+background-color: #57555525;
+
+}
+
+
+
+.divboton{
+display:flex;
+justify-content: space-between;
+}
+
+.botonInicio{
+display: flex;
+justify-content: center;
+align-items: center;
+width: 160px;
+padding: 5px;
+background-color: #42414159;
+border-radius: 10px;
+border: 2px solid;
+color: white;
+margin: 33px 33px 33px 0px;
+}
+
+.botonInicio:hover{
+background-color: #24232359;
+cursor: pointer;
+}
+
+
+.apass{
+display: flex;
+justify-content: end;
+align-items: end;
+font-size: 17px;
+color: white;
+padding: 10px;
+}
+
+.apass:hover{
+color: white;
+}
+
+.bodyRegistro{
+background-image:url(./img/img3.jpg);
+height: 100vh;
+}
+
+.div1Registro{
+display:flex;
+flex-direction: column;
+align-content: space-around;
+align-items: center;
+ height: 80vh;
+ margin: 1% 20% 1% 20%;
+
+background-color: rgba(0, 0, 0, 0.596);
 }
