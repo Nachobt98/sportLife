@@ -5,8 +5,6 @@ import { Admin } from 'src/admin/admin.model';
 import { AdminService } from 'src/admin/admin.service';
 import { RegisteredUser } from 'src/registered-user/registered-user.model';
 import { RegisteredUserService } from 'src/registered-user/registered-user.service';
-import { JwtStrategy } from './auth-strategy/jwt.strategy';
-import { LocalStrategy } from './auth-strategy/local.strategy';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 
@@ -14,8 +12,6 @@ import { AuthService } from './auth.service';
   controllers: [AuthController],
   providers: [
     AuthService,
-    LocalStrategy,
-    JwtStrategy,
     AdminService,
     RegisteredUserService,
   ],

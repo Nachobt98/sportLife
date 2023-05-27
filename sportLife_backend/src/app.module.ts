@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RegisteredUserModule } from './registered-user/registered-user.module';
 import { UserModule } from './user/auth.module';
+import { RegisteredUser } from './registered-user/registered-user.model';
+import { Admin } from './admin/admin.model';
 
 @Module({
   imports: [
@@ -12,11 +14,12 @@ import { UserModule } from './user/auth.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 49153,
+      port: 5432,
       username: 'postgres',
-      password: 'postgrespw',
+      password: 'admin',
       database: 'postgres',
-      entities: [],
+      entities: [RegisteredUser, Admin],
+      synchronize: true
     }),
     AdminModule,
     RegisteredUserModule,

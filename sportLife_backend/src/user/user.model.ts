@@ -1,23 +1,32 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 export class User {
   constructor(
-    name: string,
+    firstname: string,
+    lastname: string,
     username: string,
+    location: string,
     password: string,
-    email: string,
+    birthdate: string,
+    email?: string,
     id?: number,
   ) {
     this.id = id;
-    this.name = name;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.username = username;
+    this.location = location;
     this.password = password;
+    this.birthdate = birthdate;
     this.email = email;
   }
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  firstname: string;
+
+  @Column()
+  lastname: string;
 
   @Column()
   username: string;
@@ -25,6 +34,12 @@ export class User {
   @Column()
   password: string;
 
+  @Column()
+  location: string;
+
   @Column({ nullable: true })
   email: string;
+
+  @Column({nullable: true})
+  birthdate: string;
 }

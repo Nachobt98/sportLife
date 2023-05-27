@@ -7,7 +7,6 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { JwtAuthGuard } from './auth-strategy/jwt.strategy';
 import { AuthService } from './auth.service';
 import { SignInDto, SignUpDto, SignUpRegisteredUserDto } from './auth.dtos';
 
@@ -15,11 +14,12 @@ import { SignInDto, SignUpDto, SignUpRegisteredUserDto } from './auth.dtos';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  @UseGuards(AuthGuard('local'))
   @Post('login')
   async signIn(@Body() dto: SignInDto) {
     console.log(dto);
-    return this.authService.login(dto);
+    const a = await this.authService.login(dto);
+    console.log(a)
+    return a;
   }
 
   @Post('signupRegisteredUser')
@@ -33,7 +33,6 @@ export class AuthController {
     return this.authService.signUpAdmin(dto);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('getSession/')
   getProfile(@Request() req) {
     return req.user;

@@ -29,7 +29,7 @@ export class RegisteredUserService {
   async updateRegisteredUser(body: any, userId: number) {
     return this.registeredUsersRepository.update(userId, {
       username: body['username'],
-      name: body['name'],
+      firstname: body['name'],
       email: body['email'],
     });
   }

@@ -25,42 +25,42 @@ export class AuthService {
   async login(dto: SignInDto) {
     var user: any = await this.registeredUserRepository.findOne({
       where: [
-        { username: dto.usernameOrEmail },
-        { email: dto.usernameOrEmail },
+        { username: dto.email },
+        { email: dto.email },
       ],
     });
-
+    
     if (!user) {
       let user = await this.adminRepository.findOne({
         where: [
-          { username: dto.usernameOrEmail },
-          { email: dto.usernameOrEmail },
+          { username: dto.email },
+          { email: dto.email },
         ],
       });
       if (!user) {
         throw new UnauthorizedException();
       }
     }
-
+    console.log(user)
     const compare = await bcrypt.compare(dto.password, user.password);
 
     if (!compare) {
       throw new UnauthorizedException();
     }
-    console.log(user);
+    
     const payload = { username: user.username };
-    return {
-      access_token: this.jwtService.sign(payload),
-      type: this.getUserType(user),
-    };
+    console.log(payload);
+    return payload
+      //type: this.getUserType(user),
   }
 
   async signUpRegisteredUser(dto: SignUpRegisteredUserDto) {
     const hash = await this.hashPassword(dto.password);
-    let user = new RegisteredUser(dto.name, dto.username, hash);
-
+    console.log(dto.password)
+    let user = new RegisteredUser(dto.firstname, dto.lastname, dto.username, dto.location, hash, dto.birthdate, dto.email);
+    
     const userExists = await this.registeredUserExists(user);
-
+    
     if (userExists) {
       throw new ConflictException('User already exists.');
     }
@@ -68,6 +68,7 @@ export class AuthService {
     try {
       await this.registeredUserRepository.save(user);
     } catch (error) {
+      console.log(error)
       return error;
     }
 
@@ -81,7 +82,7 @@ export class AuthService {
 
   async signUpAdmin(dto: SignUpDto) {
     const hash = await this.hashPassword(dto.password);
-    let user = new Admin(dto.name, dto.username, hash, dto.email);
+    let user = new Admin(dto.firstname, dto.lastname, dto.username, dto.location, dto.password, dto.birthdate, dto.email, hash);
 
     const userExists = await this.adminExists(user);
 

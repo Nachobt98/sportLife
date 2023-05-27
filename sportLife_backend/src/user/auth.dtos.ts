@@ -7,13 +7,13 @@ import {
 } from 'class-validator';
 
 export class SignInDto {
-  constructor(usernameOrEmail: string, password: string) {
-    this.usernameOrEmail = usernameOrEmail;
+  constructor(email: string, password: string) {
+    this.email = email;
     this.password = password;
   }
 
   @IsNotEmpty()
-  usernameOrEmail: string;
+  email: string;
 
   @IsString()
   @IsNotEmpty()
@@ -22,23 +22,35 @@ export class SignInDto {
 
 export abstract class SignUpDto {
   constructor(
-    name: string,
+    firstname: string,
+    lastname: string,
     username: string,
+    location: string,
     password: string,
-    email?: string,
+    birthdate: string,
+    email?: string
   ) {
-    this.name = name;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.username = username;
+    this.location = location;
     this.password = password;
     this.email = email;
+    this.birthdate = birthdate;
   }
 
   @IsNotEmpty()
   @IsString()
-  name: string;
+  firstname: string;
+
+  @IsNotEmpty()
+  @IsString()
+  lastname: string;
 
   @IsNotEmpty()
   username: string;
+
+  location: string;
 
   @IsString()
   @IsNotEmpty()
@@ -48,20 +60,25 @@ export abstract class SignUpDto {
   @IsEmail()
   @IsOptional()
   email: string;
+
+  birthdate: string;
 }
 
 export class SignUpRegisteredUserDto extends SignUpDto {
   constructor(
-    name: string,
+    firstname: string,
+    lastname: string,
     username: string,
+    location: string,
     password: string,
+    birthdate: string,
     email?: string,
   ) {
-    super(name, username, password, email);
+    super(firstname, lastname, username, location, password, birthdate, email);
   }
 }
 
-export class SignUpNgoDto extends SignUpDto {
+/*export class SignUpNgoDto extends SignUpDto {
   constructor(
     name: string,
     username: string,
@@ -70,4 +87,4 @@ export class SignUpNgoDto extends SignUpDto {
   ) {
     super(name, username, password, email);
   }
-}
+}*/

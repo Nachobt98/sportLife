@@ -4,12 +4,15 @@ import { Entity } from 'typeorm';
 @Entity()
 export class RegisteredUser extends User {
   constructor(
-    name: string,
+    firstname: string,
+    lastname: string,
     username: string,
+    location: string,
     password: string,
+    birthdate: string,
     email?: string,
     id?: number,
   ) {
-    super(name, username, password, email, id);
+    super(firstname, lastname, username, location, password, birthdate, email, id);
   }
 }
