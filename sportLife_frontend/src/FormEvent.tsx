@@ -20,6 +20,8 @@ export const FormEvent= ({}) => {
         sportname:'',
         number:''
     });
+    //Llamar a http://localhost:8080/api/v1/masterData/getCities y http://localhost:8080/api/v1/masterData/getSports, que lo devuelve asi para las cities, para sport igual:
+    /**[{"id":5,"name":"Barcelona"},{"id":6,"name":"Valencia"},{"id":7,"name":"Sevilla"},{"id":8,"name":"Madrid"}] */
     const sports = [
         {
           value: 'Judo',
@@ -62,6 +64,24 @@ export const FormEvent= ({}) => {
     console.log(formData);
     console.log(JSONData);
     }
+
+    //handle para CREAR EVENTOS. No se donde ponerlo, miralo tu
+    
+    /* const handleSubmit = async (name, description, sport, members) =>{
+      await fetch('http://localhost:8080/api/v1/event/create', {
+  method: 'POST',
+  body: JSON.stringify({
+     name,
+     description,
+     sport,
+     members
+  }),
+  headers: {
+     'Content-type': 'application/json; charset=UTF-8',
+  },
+  })
+  .then((response) => {console.log(response); response.json();  console.log("asdasdasdasd")})
+  } */
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(true);

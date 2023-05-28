@@ -7,6 +7,11 @@ import { RegisteredUserModule } from './registered-user/registered-user.module';
 import { UserModule } from './user/auth.module';
 import { RegisteredUser } from './registered-user/registered-user.model';
 import { Admin } from './admin/admin.model';
+import { EventModule } from './event/event.module';
+import { MasterDataController } from './master-data/master-data.controller';
+import { Event } from './event/event.model';
+import { City, Sport } from './master-data/master-data.models';
+import { MasterDataModule } from './master-data/master-data.module';
 
 @Module({
   imports: [
@@ -18,11 +23,13 @@ import { Admin } from './admin/admin.model';
       username: 'postgres',
       password: 'admin',
       database: 'postgres',
-      entities: [RegisteredUser, Admin],
+      entities: [RegisteredUser, Admin, Event, Sport, City],
       synchronize: true
     }),
     AdminModule,
     RegisteredUserModule,
+    EventModule,
+    MasterDataModule
   ],
   controllers: [AppController],
   providers: [AppService],

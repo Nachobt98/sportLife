@@ -25,11 +25,10 @@ export class AuthService {
   async login(dto: SignInDto) {
     var user: any = await this.registeredUserRepository.findOne({
       where: [
-        { username: dto.email },
         { email: dto.email },
       ],
     });
-    
+
     if (!user) {
       let user = await this.adminRepository.findOne({
         where: [
@@ -41,9 +40,9 @@ export class AuthService {
         throw new UnauthorizedException();
       }
     }
-    console.log(user)
+   
     const compare = await bcrypt.compare(dto.password, user.password);
-
+    
     if (!compare) {
       throw new UnauthorizedException();
     }

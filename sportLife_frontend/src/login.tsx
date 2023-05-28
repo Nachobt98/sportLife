@@ -10,14 +10,14 @@ export const Login =() => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
-  const [contrasena, setContrasena] = useState("")
+  const [password, setContrasena] = useState("")
 
- const handleSubmit = async (email, contrasena) =>{
+ const handleSubmit = async (email, password) =>{
     await fetch('http://localhost:8080/api/v1/auth/login', {
 method: 'POST',
 body: JSON.stringify({
-   email: email,
-   password: contrasena
+   email,
+   password
 }),
 headers: {
    'Content-type': 'application/json; charset=UTF-8',
@@ -50,10 +50,10 @@ return(
         </div>
         <div>
           <label className="labelPass" form="name">Contrasena </label>
-          <input type="password"  value = {contrasena} onChange={e => setContrasena(e.target.value)}/>
+          <input type="password"  value = {password} onChange={e => setContrasena(e.target.value)}/>
         </div>
         <div className="divboton">
-          <button type="submit" className="botonInicio" onClick={ () => navigate('/ejemplo')}>Aceptar</button>
+          <button type="submit" className="botonInicio" onClick={ () => handleSubmit(email, password)}>Aceptar</button>
           <div>
             <a href="" className="apass">Olvidaste la contrasena?</a> 
             <a
