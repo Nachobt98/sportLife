@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import logo from './img/Sportlife1-removebg-preview.png';
-import './bootstrap.min.css';
+
+import './bootstrap.min.css'
 import { useNavigate } from 'react-router-dom';
 
 import Ejemplo from './buttonChange';
@@ -10,6 +11,7 @@ export const Login =() => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
+
   const [password, setContrasena] = useState("")
 
  const handleSubmit = async (email, password) =>{
@@ -23,15 +25,9 @@ headers: {
    'Content-type': 'application/json; charset=UTF-8',
 },
 })
-.then((response) => {console.log(response); response.json();  console.log("asdasdasdasd")})
+.then((response) => {console.log(response); response.json();  console.log(response.json())})
 }
 
-
-const falseSubmit = () => {
-  
- 
-  
-}
 
 
  //iniciar sesion, meterlo en BD

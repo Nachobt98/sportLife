@@ -58,37 +58,37 @@ export const FormEvent= ({}) => {
       });
     }
 
-    const handleSubmit = (event) =>{
+   /* const handleSubmit = (event) =>{
         event.preventDefault();
    const JSONData = JSON.stringify(formData);
     console.log(formData);
     console.log(JSONData);
-    }
+    }*/
 
     //handle para CREAR EVENTOS. No se donde ponerlo, miralo tu
     
-    /* const handleSubmit = async (name, description, sport, members) =>{
-      await fetch('http://localhost:8080/api/v1/event/create', {
+     const handleSubmit = async (NameForm, description, sportname, number) =>{
+      await fetch('http://localhost:8080/api/v1/event/createEvent', {
   method: 'POST',
   body: JSON.stringify({
-     name,
-     description,
-     sport,
-     members
+     name: NameForm,
+     description:description,
+     sport: sportname,
+     members:number
   }),
   headers: {
      'Content-type': 'application/json; charset=UTF-8',
   },
   })
   .then((response) => {console.log(response); response.json();  console.log("asdasdasdasd")})
-  } */
+  } 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(true);
 
     return(
         
-<Form onSubmit={handleSubmit}>
+<Form>
     <Grid paddingBottom="1rem">
         <h1 className='titleModal'>Nuevo Evento</h1>
     </Grid>
@@ -148,7 +148,7 @@ Numero de integrantes
             Cerrar
           </Button>
 
-    <Button type='submit' onClick={() => handleSubmit}>
+    <Button type='submit' onClick={() => handleSubmit(NameForm, description, sportname, number)}>
 Aceptar
     </Button>
 </Grid>

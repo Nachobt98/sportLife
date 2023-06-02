@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import './App.css';
 
-import './bootstrap.min.css';
+import '../style/bootstrap.min.css'
 
 import {Home} from './Incio'
 
@@ -25,10 +25,9 @@ import Ejemplo from './buttonChange';
 function App() {
   return (
     <>
-    
     <Routes>
      <Route path='/' element = {<Home />}/>
-     <Route path='/register' element = {<Reg />}/>
+     <Route path='/register' element = {<Reg/>}/>
      <Route path='/login' element = {<Login/>}/>
      <Route path='/event' element = {<Event/>}/>
      <Route path='/newEvent' element = {<NewEvent/>}/>

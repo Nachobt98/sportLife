@@ -5,12 +5,26 @@ import  Evento from './eventComponent';
 import NewButton from './newEventButton';
 import FormEvent from './FormEvent';
 import FilterForm from './FilterForm';
+
+
+
+
+
 import { useNavigate } from 'react-router-dom';
+
+
+
+
+
+
 import { useState } from 'react';
+
+
+
 import { FormControl, TextField, formControlLabelClasses, Slider, Input } from '@mui/material';
 import { Button, Modal} from 'react-bootstrap';
 
-import './bootstrap.min.css';
+import './bootstrap.min.css'
 import { log } from 'console';
 import { Box, Grid} from '@mui/material';
 
@@ -70,7 +84,6 @@ import handleSubmit from './FormEvent';
                 <a 
                 className="nav-link active" 
                 aria-current="page"
-                //href="event"
                 onClick={() => navigate('/event')}
                 >Eventos</a>
               </li>

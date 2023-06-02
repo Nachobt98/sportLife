@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import './bootstrap.min.css';
+import './bootstrap.min.css'
 
 import img5 from "./img/img5.jpg";
 import logo from './img/Sportlife1-removebg-preview.png';

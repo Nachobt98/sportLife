@@ -9,7 +9,7 @@ import { Button, Modal} from 'react-bootstrap';
 
 import tableData from './tableData';
 
-import './bootstrap.min.css';
+import './bootstrap.min.css'
 
 export const NewEvent =() => {
     return(
